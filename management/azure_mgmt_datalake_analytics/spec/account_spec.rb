@@ -33,7 +33,6 @@ describe 'DataLakeAnalyticsClient Account' do
     }
     analytics_acc.default_data_lake_store_account = @dl_store_acc.name
     dla_acc_info = Models::DataLakeStoreAccountInfo.new
-    dla_acc_info.name = @dl_store_acc.name
 
     analytics_acc.data_lake_store_accounts = [dla_acc_info]
 
