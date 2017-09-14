@@ -8,27 +8,12 @@ require_relative '<%= version_name %>/generated/azure_mgmt_compute'
 
 module <%= @namespace %>
   class Client
-    attr_accessor :<%= @management_client['file_name'] %>, :model_types
+    attr_accessor :<%= @management_client['file_name'] %>
 
     def initialize(version, credentials = nil, base_url = nil, options = nil)
       @version = 'Api_' + version.gsub('-', '_')
       client_name = "Azure::ARM::Compute::#{@version}::<%= @management_client['class_name'] %>"
       self.<%= @management_client['file_name'] %> = Object.const_get(client_name).new(credentials, base_url, options)
-      self.model_types = ModelTypes.new(@version)
     end
-  end
-
-  class ModelTypes
-    def initialize(version)
-      @version = version
-    end
-
-    <%- @models.each do |key, value| -%>
-    def <%= key %>
-      model_name = <%= value %>
-      Object.const_get(model_name)
-    end
-
-    <%- end -%>
   end
 end

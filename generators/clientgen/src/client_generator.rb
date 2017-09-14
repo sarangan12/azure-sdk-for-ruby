@@ -13,7 +13,7 @@ class ClientGenerator
   end
 
   def generate
-    list_of_gems = Dir.entries('../../management') - ['.' , '..']
+    list_of_gems = Dir.entries('../../../management') - ['.' , '..']
     list_of_gems.each do |gem|
       if(gem == 'azure_mgmt_compute')
         library_location = "../../../management/#{gem}/lib"
@@ -29,14 +29,15 @@ class ClientGenerator
         @management_client['class_name'] = Module.const_get("#{@namespace}::#{version}").constants.select {|entry| entry.to_s.end_with?'ManagementClient'}[0].to_s
         @management_client['file_name']  = get_model_name(@management_client['class_name'])
 
-        @list_of_versions.each do |version|
-          require "#{library_location}/#{version}/generated/#{gem}.rb"
-          version             = 'Api_' + version.gsub('-', '_')
-          model_objects = Module.const_get("#{@namespace}::#{version}::Models")
-          model_objects.constants.each do |const_name|
-            @models[get_model_name(const_name.to_s)] = "\"#{@namespace}::\#{@version}::Models::#{const_name}\""
-          end
-        end
+        #@list_of_versions.each do |version|
+          #require "#{library_location}/#{version}/generated/#{gem}.rb"
+          #version             = 'Api_' + version.gsub('-', '_')
+
+          #model_objects = Module.const_get("#{@namespace}::#{version}::Models")
+          #model_objects.constants.each do |const_name|
+          #  @models[get_model_name(const_name.to_s)] = "\"#{@namespace}::\#{@version}::Models::#{const_name}\""
+          #end
+        #end
 
         create_client_file
         write_client_file
