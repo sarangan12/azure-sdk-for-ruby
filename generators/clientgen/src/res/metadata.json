@@ -1,0 +1,7 @@
+{
+  "azure_mgmt_compute": {
+    "path": "../../management/azure_mgmt_compute/",
+    "namespace": "Azure::ARM::Compute",
+    "module_require": "azure_mgmt_compute"
+  }
+}
