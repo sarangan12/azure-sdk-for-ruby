@@ -18,10 +18,10 @@ module Azure::ARM::Monitor
       @@discriminatorMap["Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition"] = "ManagementEventRuleCondition"
 
       def initialize
-        @odata.type = "RuleCondition"
+        @odata_type = "RuleCondition"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [RuleDataSource] the resource from which the rule collects its
       # data. For this type dataSource will always be of type

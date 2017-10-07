@@ -14,10 +14,10 @@ module Azure::ARM::Monitor
 
 
       def initialize
-        @odata.type = "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition"
+        @odata_type = "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [Duration] the period of time (in ISO 8601 duration format)
       # that is used to monitor alert activity based on the threshold. If
@@ -51,7 +51,7 @@ module Azure::ARM::Monitor
                   class_name: 'RuleDataSource'
                 }
               },
-              odata.type: {
+              odata_type: {
                 required: true,
                 serialized_name: 'odata\\.type',
                 type: {

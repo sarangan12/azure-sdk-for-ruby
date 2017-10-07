@@ -15,10 +15,10 @@ module Azure::ARM::Monitor
 
 
       def initialize
-        @odata.type = "Microsoft.Azure.Management.Insights.Models.RuleEmailAction"
+        @odata_type = "Microsoft.Azure.Management.Insights.Models.RuleEmailAction"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [Boolean] Whether the administrators (service and
       # co-administrators) of the service should be notified when the alert is
@@ -42,7 +42,7 @@ module Azure::ARM::Monitor
             name: 'Composite',
             class_name: 'RuleEmailAction',
             model_properties: {
-              odata.type: {
+              odata_type: {
                 required: true,
                 serialized_name: 'odata\\.type',
                 type: {

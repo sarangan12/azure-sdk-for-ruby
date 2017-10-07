@@ -15,10 +15,10 @@ module Azure::ARM::Monitor
 
 
       def initialize
-        @odata.type = "Microsoft.Azure.Management.Insights.Models.RuleWebhookAction"
+        @odata_type = "Microsoft.Azure.Management.Insights.Models.RuleWebhookAction"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [String] the service uri to Post the notification when the
       # alert activates or resolves.
@@ -42,7 +42,7 @@ module Azure::ARM::Monitor
             name: 'Composite',
             class_name: 'RuleWebhookAction',
             model_properties: {
-              odata.type: {
+              odata_type: {
                 required: true,
                 serialized_name: 'odata\\.type',
                 type: {

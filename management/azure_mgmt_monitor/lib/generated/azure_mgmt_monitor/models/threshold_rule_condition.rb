@@ -14,10 +14,10 @@ module Azure::ARM::Monitor
 
 
       def initialize
-        @odata.type = "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition"
+        @odata_type = "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [ConditionOperator] the operator used to compare the data and
       # the threshold. Possible values include: 'GreaterThan',
@@ -61,7 +61,7 @@ module Azure::ARM::Monitor
                   class_name: 'RuleDataSource'
                 }
               },
-              odata.type: {
+              odata_type: {
                 required: true,
                 serialized_name: 'odata\\.type',
                 type: {

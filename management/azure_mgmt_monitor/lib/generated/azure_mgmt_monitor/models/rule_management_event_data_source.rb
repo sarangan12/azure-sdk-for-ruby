@@ -15,10 +15,10 @@ module Azure::ARM::Monitor
 
 
       def initialize
-        @odata.type = "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource"
+        @odata_type = "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [String] the event name.
       attr_accessor :event_name
@@ -69,7 +69,7 @@ module Azure::ARM::Monitor
                   name: 'String'
                 }
               },
-              odata.type: {
+              odata_type: {
                 required: true,
                 serialized_name: 'odata\\.type',
                 type: {

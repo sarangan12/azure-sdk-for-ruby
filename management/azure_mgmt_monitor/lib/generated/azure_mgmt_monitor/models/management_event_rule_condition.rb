@@ -14,10 +14,10 @@ module Azure::ARM::Monitor
 
 
       def initialize
-        @odata.type = "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition"
+        @odata_type = "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [ManagementEventAggregationCondition] How the data that is
       # collected should be combined over time and when the alert is activated.
@@ -48,7 +48,7 @@ module Azure::ARM::Monitor
                   class_name: 'RuleDataSource'
                 }
               },
-              odata.type: {
+              odata_type: {
                 required: true,
                 serialized_name: 'odata\\.type',
                 type: {

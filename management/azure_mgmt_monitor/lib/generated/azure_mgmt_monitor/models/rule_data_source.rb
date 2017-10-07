@@ -17,10 +17,10 @@ module Azure::ARM::Monitor
       @@discriminatorMap["Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource"] = "RuleManagementEventDataSource"
 
       def initialize
-        @odata.type = "RuleDataSource"
+        @odata_type = "RuleDataSource"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [String] the resource identifier of the resource the rule
       # monitors. **NOTE**: this property cannot be updated for an existing

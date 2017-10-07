@@ -18,10 +18,10 @@ module Azure::ARM::Monitor
       @@discriminatorMap["Microsoft.Azure.Management.Insights.Models.RuleWebhookAction"] = "RuleWebhookAction"
 
       def initialize
-        @odata.type = "RuleAction"
+        @odata_type = "RuleAction"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
 
       #

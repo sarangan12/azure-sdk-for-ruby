@@ -15,10 +15,10 @@ module Azure::ARM::Monitor
 
 
       def initialize
-        @odata.type = "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource"
+        @odata_type = "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource"
       end
 
-      attr_accessor :odata.type
+      attr_accessor :odata_type
 
       # @return [String] the name of the metric that defines what the rule
       # monitors.
@@ -44,7 +44,7 @@ module Azure::ARM::Monitor
                   name: 'String'
                 }
               },
-              odata.type: {
+              odata_type: {
                 required: true,
                 serialized_name: 'odata\\.type',
                 type: {
