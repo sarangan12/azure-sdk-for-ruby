@@ -3,36 +3,31 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::ARM::Redis
+module Azure::ARM::TrafficManager
   module Models
     #
-    # The Resource definition.
+    # Class representing a Traffic Manager Real User Metrics key response.
     #
-    class Resource
+    class TrafficManagerUserMetricsKeyModel < ProxyResource
 
       include MsRestAzure
 
-      # @return [String] Resource ID.
-      attr_accessor :id
-
-      # @return [String] Resource name.
-      attr_accessor :name
-
-      # @return [String] Resource type.
-      attr_accessor :type
+      # @return [String] The key returned by the Realtime User Metrics
+      # operation.
+      attr_accessor :key
 
 
       #
-      # Mapper for Resource class as Ruby Hash.
+      # Mapper for TrafficManagerUserMetricsKeyModel class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
           required: false,
-          serialized_name: 'Resource',
+          serialized_name: 'TrafficManagerUserMetricsKeyModel',
           type: {
             name: 'Composite',
-            class_name: 'Resource',
+            class_name: 'TrafficManagerUserMetricsKeyModel',
             model_properties: {
               id: {
                 required: false,
@@ -54,6 +49,13 @@ module Azure::ARM::Redis
                 required: false,
                 read_only: true,
                 serialized_name: 'type',
+                type: {
+                  name: 'String'
+                }
+              },
+              key: {
+                required: false,
+                serialized_name: 'properties.key',
                 type: {
                   name: 'String'
                 }

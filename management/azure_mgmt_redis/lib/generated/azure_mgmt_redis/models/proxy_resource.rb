@@ -6,33 +6,25 @@
 module Azure::ARM::Redis
   module Models
     #
-    # The Resource definition.
+    # The resource model definition for a ARM proxy resource. It will have
+    # everything other than required location and tags
     #
-    class Resource
+    class ProxyResource < Resource
 
       include MsRestAzure
 
-      # @return [String] Resource ID.
-      attr_accessor :id
-
-      # @return [String] Resource name.
-      attr_accessor :name
-
-      # @return [String] Resource type.
-      attr_accessor :type
-
 
       #
-      # Mapper for Resource class as Ruby Hash.
+      # Mapper for ProxyResource class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
           required: false,
-          serialized_name: 'Resource',
+          serialized_name: 'ProxyResource',
           type: {
             name: 'Composite',
-            class_name: 'Resource',
+            class_name: 'ProxyResource',
             model_properties: {
               id: {
                 required: false,

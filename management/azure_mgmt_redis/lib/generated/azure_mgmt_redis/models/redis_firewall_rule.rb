@@ -6,33 +6,31 @@
 module Azure::ARM::Redis
   module Models
     #
-    # The Resource definition.
+    # A firewall rule on a redis cache has a name, and describes a contiguous
+    # range of IP addresses permitted to connect
     #
-    class Resource
+    class RedisFirewallRule < ProxyResource
 
       include MsRestAzure
 
-      # @return [String] Resource ID.
-      attr_accessor :id
+      # @return [String] lowest IP address included in the range
+      attr_accessor :start_ip
 
-      # @return [String] Resource name.
-      attr_accessor :name
-
-      # @return [String] Resource type.
-      attr_accessor :type
+      # @return [String] highest IP address included in the range
+      attr_accessor :end_ip
 
 
       #
-      # Mapper for Resource class as Ruby Hash.
+      # Mapper for RedisFirewallRule class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
           required: false,
-          serialized_name: 'Resource',
+          serialized_name: 'RedisFirewallRule',
           type: {
             name: 'Composite',
-            class_name: 'Resource',
+            class_name: 'RedisFirewallRule',
             model_properties: {
               id: {
                 required: false,
@@ -54,6 +52,20 @@ module Azure::ARM::Redis
                 required: false,
                 read_only: true,
                 serialized_name: 'type',
+                type: {
+                  name: 'String'
+                }
+              },
+              start_ip: {
+                required: true,
+                serialized_name: 'properties.startIP',
+                type: {
+                  name: 'String'
+                }
+              },
+              end_ip: {
+                required: true,
+                serialized_name: 'properties.endIP',
                 type: {
                   name: 'String'
                 }
