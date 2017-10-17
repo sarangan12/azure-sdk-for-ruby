@@ -257,14 +257,18 @@ end
 
 def each_child
   top_level_dirs = Dir.entries('./').select { |f| File.directory?(f) and !(f =='.' || f == '..') }
-  management_level_dirs = Dir.entries('management/.').select { |f| File.directory?("management/#{f}") and !(f =='.' || f == '..') }
-  management_level_dirs.map! {|management_level_dir| "management/#{management_level_dir}"}
-  dirs = top_level_dirs.concat(management_level_dirs)
-  dirs.each do |dir|
-    Dir.chdir(dir) do
-      yield(dir)
-    end
+  Dir.chdir('azure_sdk') do
+    yield(dir)
   end
+
+  #management_level_dirs = Dir.entries('management/.').select { |f| File.directory?("management/#{f}") and !(f =='.' || f == '..') }
+  #management_level_dirs.map! {|management_level_dir| "management/#{management_level_dir}"}
+  #dirs = top_level_dirs.concat(management_level_dirs)
+  #dirs.each do |dir|
+  #  Dir.chdir(dir) do
+  #    yield(dir)
+  #  end
+  #end
 end
 
 def each_gem
